@@ -1012,7 +1012,7 @@ static void json_scanf_cb(void *callback_data, const char *name,
     case 'V': {
 #if JSON_ENABLE_BASE64
       char **dst = (char **) info->target;
-      int len = token->len * 4 / 3 + 2;
+      int len = token->len * 3 / 4 + 2;
       if ((*dst = (char *) malloc(len + 1)) != NULL) {
         int n = b64dec(token->ptr, token->len, *dst);
         (*dst)[n] = '\0';
